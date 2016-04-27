@@ -35,3 +35,8 @@
   (cond
     (empty? stack) empty
     :otherwise     (cons stack (sufixes tail))))
+
+(defmacro create [& items]
+  (->> items
+       reverse
+       (reduce #(list 'data-structures.stack/cons %2 %1) 'data-structures.stack/empty)))
